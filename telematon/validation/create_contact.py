@@ -3,7 +3,7 @@ import pydantic
 
 class CreateContactValidation(pydantic.BaseModel):
     name: str
-    surname: str | None
+    surname: str = ""
 
     phone_number: str
 
