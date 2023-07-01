@@ -1,0 +1,8 @@
+[tool.black]
+line-length = 80
+
+[tool.ruff]
+cache-dir = ".ruff-cache"
+ignore = ["B904", "B023"]
+line-length = 80
+select = ["E", "F", "B"]
