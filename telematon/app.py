@@ -9,7 +9,9 @@ logging.basicConfig(
     filename=f"{datetime.datetime.utcnow()}.log",
     filemode="w",
     format="%(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
 )
+logging.getLogger().addHandler(logging.StreamHandler())
 
 app = Flask(__name__)
 

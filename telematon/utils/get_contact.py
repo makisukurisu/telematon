@@ -30,6 +30,4 @@ def get_contact(phone_number: str) -> User | None:
 
     app = get_app()
 
-    return even_loop.run_until_complete(
-        make_call(app, phone_number=phone_number)
-    )
+    return even_loop.run_until_complete(make_call(app, phone_number=phone_number))

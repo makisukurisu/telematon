@@ -1,4 +1,6 @@
-from telematon.utils import create_contact, get_contact, send_message
+import logging
+
+from telematon.utils import ErrorMessage, create_contact, get_contact, send_message
 from telematon.validation.create_contact import CreateContactValidation
 
 from .base import BaseJSONView
@@ -18,6 +20,9 @@ class CreateContactView(BaseJSONView):
             user = contacts.users[0]
 
         if not user:
+            logging.error(
+                ErrorMessage(f"User not found: {data.phone_number}", json_input)
+            )
             return {"message": "User not found", "status": "error"}, 404
 
         send_message(user.id, data.message_text)
